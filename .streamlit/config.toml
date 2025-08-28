@@ -1,6 +1,7 @@
 [theme]
-primaryColor="#7a3ff2"
-backgroundColor="#0e1117"
-secondaryBackgroundColor="#161c26"
-textColor="#e1e7ef"
-font="sans serif"
+base = "light"                          # ensure overall light UI
+primaryColor = "#7a3ff2"               # violet accent
+backgroundColor = "#ffffff"            # main page background
+secondaryBackgroundColor = "#f5f7fb"   # cards/sidebars: very light gray-blue
+textColor = "#0e1117"                  # near-black text for good contrast
+font = "sans serif"                    # app typography
