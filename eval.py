@@ -16,7 +16,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+from utils import init_session_state
+
 load_dotenv(find_dotenv())
+init_session_state()
 
 # Page Configuration
 st.set_page_config(
@@ -477,14 +480,14 @@ def create_comparison_chart(comparison_data, include_time=True):
 
 
 # Initialize session state
-if 'df' not in st.session_state:
-    st.session_state.df = None
-if 'results' not in st.session_state:
-    st.session_state.results = None
-if 'is_running' not in st.session_state:
-    st.session_state.is_running = False
-if 'selected_result' not in st.session_state:
-    st.session_state.selected_result = None
+# if 'df' not in st.session_state:
+#     st.session_state.df = None
+# if 'results' not in st.session_state:
+#     st.session_state.results = None
+# if 'is_running' not in st.session_state:
+#     st.session_state.is_running = False
+# if 'selected_result' not in st.session_state:
+#     st.session_state.selected_result = None
 
 # Header with gradient
 st.markdown("<h1>🎯 OCR Image Bench</h1>", unsafe_allow_html=True)
@@ -523,12 +526,14 @@ with st.sidebar:
         except Exception as e:
             st.error(f"❌ Ошибка чтения CSV: {e}")
             st.session_state.df = None
-    else:
+    elif st.session_state.df is None:
         try:
             st.session_state.df = pd.read_csv("data.csv")
             st.info("ℹ️ Используется файл data.csv по умолчанию")
         except:
             st.warning("⚠️ Загрузите CSV файл для начала работы")
+    else:
+        st.info("ℹ️ Используется ранее загруженный файл")
 
     # Sampling Configuration
     if st.session_state.df is not None:
