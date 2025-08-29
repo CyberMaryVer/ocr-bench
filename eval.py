@@ -489,7 +489,7 @@ if 'selected_result' not in st.session_state:
 # Header with gradient
 st.markdown("<h1>🎯 OCR Image Bench</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<p style='text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 2rem;'>Профессиональная оценка визуальных языковых моделей</p>",
+    "<p style='text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 2rem;'>Оценка LLM на изображениях</p>",
     unsafe_allow_html=True)
 
 # Sidebar Configuration
